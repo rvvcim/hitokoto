@@ -18,9 +18,9 @@ if (isset($_GET['charset']) && !empty($_GET['charset'])) {
 
 //判断请求，并输出内容
 header("Content-Type: text/json; charset=$charset"); 
-if (isset($_GET['encode']) === 'js') {
+if (@$_GET['encode'] === 'js') {
 	echo "function hitokoto(){document.write(".$content.")";
-} elseif (isset($_GET['encode']) === 'json') {
+} elseif (@$_GET['encode'] === 'json') {
 	echo '{"data":{"content":{"id":'. $arr. ',"hitokoto":"'. $content . '"}},"status":"数据获取成功！"}';
 } else {
 	echo $content;
